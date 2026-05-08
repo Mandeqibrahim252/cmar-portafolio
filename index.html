@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cumar - Professional Interior Designer in Mogadishu. Creating modern, elegant, and comfortable interior spaces.">
+    <title>Cumar | Interior Designer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#1E293B',
+                        accent: '#38BDF8',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        sora: ['Sora', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-poppins bg-gray-50 dark:bg-primary text-gray-900 dark:text-white overflow-x-hidden">
+    
+    <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-primary">
+        <div class="text-center">
+            <div class="text-5xl font-sora font-bold bg-gradient-to-r from-accent to-cyan-400 bg-clip-text text-transparent mb-4">C</div>
+            <div class="w-48 h-1 bg-gray-700 rounded-full overflow-hidden">
+                <div class="h-full bg-accent rounded-full animate-pulse" style="width: 60%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cursor" class="fixed w-5 h-5 bg-accent rounded-full pointer-events-none z-50 hidden md:block opacity-70 blur-sm transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-accent to-cyan-400 z-50 transition-all" style="width: 0%"></div>
+
+    <nav class="fixed top-0 left-0 w-full z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4">
+            <div class="bg-white/80 dark:bg-primary/80 backdrop-blur-lg rounded-2xl mt-4 px-6 py-4 flex items-center justify-between shadow-lg">
+                <a href="index.html" class="text-2xl font-sora font-bold bg-gradient-to-r from-accent to-cyan-400 bg-clip-text text-transparent">Cumar</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-gray-600 dark:text-gray-300 hover:text-accent">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 dark:text-gray-300 hover:text-accent">About</a>
+                    <a href="#services" class="nav-link text-gray-600 dark:text-gray-300 hover:text-accent">Services</a>
+                    <a href="#portfolio" class="nav-link text-gray-600 dark:text-gray-300 hover:text-accent">Portfolio</a>
+                    <a href="#contact" class="nav-link text-gray-600 dark:text-gray-300 hover:text-accent">Contact</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white hover:bg-accent transition">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="hamburger" class="md:hidden w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="nav-menu" class="md:hidden absolute top-full left-0 w-full mt-2 bg-white dark:bg-primary/95 backdrop-blur-lg rounded-2xl shadow-lg p-6 hidden">
+            <div class="flex flex-col gap-4">
+                <a href="#home" class="nav-link py-2">Home</a>
+                <a href="#about" class="nav-link py-2">About</a>
+                <a href="#services" class="nav-link py-2">Services</a>
+                <a href="#portfolio" class="nav-link py-2">Portfolio</a>
+                <a href="#contact" class="nav-link py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen pt-24 pb-16 relative flex items-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-primary">
+            <div class="absolute top-1/4 -left-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <p class="text-accent font-medium mb-4 uppercase tracking-widest">Hi, I'm Cumar</p>
+                    <h1 class="text-4xl md:text-6xl font-sora font-bold mb-6">
+                        Interior <span class="bg-gradient-to-r from-accent to-cyan-400 bg-clip-text text-transparent">Designer</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg mb-8 max-w-lg mx-auto lg:mx-0">
+                        Creating modern, elegant, and comfortable interior spaces in Mogadishu.
+                    </p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
+                        <a href="#portfolio" class="px-8 py-4 bg-gradient-to-r from-accent to-cyan-500 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-accent/30 transition">
+                            View Portfolio <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#contact" class="px-8 py-4 border-2 border-accent text-accent rounded-full font-semibold hover:bg-accent hover:text-white transition">
+                            Contact Me <i class="fas fa-envelope ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="flex justify-center lg:justify-start gap-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-accent transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-accent transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-accent transition">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl"></div>
+                        <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-cyan-500/20 rounded-full blur-2xl"></div>
+                        <div class="relative w-64 h-64 md:w-80 md:h-80">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent to-cyan-500 rounded-full p-1">
+                                <div class="rounded-full overflow-hidden h-full w-full">
+                                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&h=400&fit=crop" alt="Cumar" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-4 -right-4 bg-white dark:bg-secondary rounded-2xl p-4 shadow-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-pen-ruler text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold">Interior Design</p>
+                                        <p class="text-xs text-gray-500">Expert</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+                <a href="#about" class="text-white text-2xl">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-24 bg-white dark:bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=350&h=400&fit=crop" alt="Cumar" class="w-full h-auto max-w-xs">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white dark:bg-secondary rounded-2xl p-6 shadow-2xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gradient-to-r from-accent to-cyan-500 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-award text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold text-gray-900 dark:text-white">5+</p>
+                                <p class="text-sm text-gray-500">Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-accent/10 rounded-full"></div>
+                </div>
+                <div>
+                    <p class="text-accent font-medium mb-2 uppercase tracking-widest">About Me</p>
+                    <h2 class="text-3xl md:text-5xl font-sora font-bold mb-6 text-gray-900 dark:text-white">
+                        Professional <span class="text-accent">Interior Designer</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        I am an interior designer with extensive experience in creating modern aesthetics, professional work, and comfortable indoor environments. I fully operate in Mogadishu, focusing on designs that align with culture, beauty, and modern usage of residential and commercial spaces.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 mb-8">
+                        <div class="text-center p-4 bg-gray-50 dark:bg-secondary rounded-xl">
+                            <p class="text-2xl font-bold text-accent">10+</p>
+                            <p class="text-sm text-gray-500">Projects</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 dark:bg-secondary rounded-xl">
+                            <p class="text-2xl font-bold text-accent">6+</p>
+                            <p class="text-sm text-gray-500">Services</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 dark:bg-secondary rounded-xl">
+                            <p class="text-2xl font-bold text-accent">4+</p>
+                            <p class="text-sm text-gray-500">Reviews</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex px-8 py-4 bg-gradient-to-r from-accent to-cyan-500 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-accent/30 transition">
+                        Let's Work Together <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 md:py-32 bg-gray-100 dark:bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-accent text-sm font-medium mb-2 uppercase tracking-widest" data-aos="fade-up">Services</p>
+                <h2 class="text-4xl md:text-5xl font-sora font-bold" data-aos="fade-up" data-aos-delay="200">
+                    What I <span class="text-accent">Offer</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="service-card group" data-aos="fade-up">
+                    <div class="bg-white dark:bg-primary rounded-2xl p-8 h-full border border-transparent hover:border-accent/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6 text-accent text-3xl group-hover:bg-accent group-hover:text-white transition">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h3 class="text-xl font-sora font-semibold mb-3">Interior Design</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Complete interior design solutions tailored to your vision, style, and functional requirements.</p>
+                    </div>
+                </div>
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white dark:bg-primary rounded-2xl p-8 h-full border border-transparent hover:border-accent/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6 text-accent text-3xl group-hover:bg-accent group-hover:text-white transition">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <h3 class="text-xl font-sora font-semibold mb-3">Space Planning</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Optimizing spatial layouts to maximize functionality and flow in residential and commercial spaces.</p>
+                    </div>
+                </div>
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white dark:bg-primary rounded-2xl p-8 h-full border border-transparent hover:border-accent/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6 text-accent text-3xl group-hover:bg-accent group-hover:text-white transition">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3 class="text-xl font-sora font-semibold mb-3">3D Visualization</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Realistic 3D renderings and virtual tours to help you visualize your space before construction.</p>
+                    </div>
+                </div>
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white dark:bg-primary rounded-2xl p-8 h-full border border-transparent hover:border-accent/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6 text-accent text-3xl group-hover:bg-accent group-hover:text-white transition">
+                            <i class="fas fa-couch"></i>
+                        </div>
+                        <h3 class="text-xl font-sora font-semibold mb-3">Furniture Layout</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Strategic furniture placement and selection to enhance comfort and aesthetic appeal.</p>
+                    </div>
+                </div>
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white dark:bg-primary rounded-2xl p-8 h-full border border-transparent hover:border-accent/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6 text-accent text-3xl group-hover:bg-accent group-hover:text-white transition">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-sora font-semibold mb-3">Commercial Design</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Professional interior design for offices, restaurants, retail spaces, and commercial properties.</p>
+                    </div>
+                </div>
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-white dark:bg-primary rounded-2xl p-8 h-full border border-transparent hover:border-accent/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6 text-accent text-3xl group-hover:bg-accent group-hover:text-white transition">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h3 class="text-xl font-sora font-semibold mb-3">Home Decoration</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Complete home decoration services to transform your space into a beautiful, functional sanctuary.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 md:py-32 bg-gray-50 dark:bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-accent text-sm font-medium mb-2 uppercase tracking-widest" data-aos="fade-up">Portfolio</p>
+                <h2 class="text-4xl md:text-5xl font-sora font-bold" data-aos="fade-up" data-aos-delay="200">
+                    My <span class="text-accent">Projects</span>
+                </h2>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+                <button class="filter-btn active px-6 py-2 rounded-full bg-accent text-white" data-filter="all">All</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-secondary" data-filter="living-room">Living Room</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-secondary" data-filter="bedroom">Bedroom</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-secondary" data-filter="office">Office</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-secondary" data-filter="kitchen">Kitchen</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-secondary" data-filter="commercial">Commercial</button>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project-card" data-category="living-room" data-aos="fade-up">
+                    <div class="bg-white dark:bg-secondary rounded-xl overflow-hidden shadow-lg group cursor-pointer hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop" alt="Modern Living Room" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span class="text-accent text-xs uppercase">Living Room</span>
+                                    <h3 class="text-white text-lg font-semibold">Modern Living Room</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="bedroom" data-aos="fade-up">
+                    <div class="bg-white dark:bg-secondary rounded-xl overflow-hidden shadow-lg group cursor-pointer hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" alt="Luxury Bedroom" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span class="text-accent text-xs uppercase">Bedroom</span>
+                                    <h3 class="text-white text-lg font-semibold">Luxury Bedroom</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="office" data-aos="fade-up">
+                    <div class="bg-white dark:bg-secondary rounded-xl overflow-hidden shadow-lg group cursor-pointer hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" alt="Modern Office" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span class="text-accent text-xs uppercase">Office</span>
+                                    <h3 class="text-white text-lg font-semibold">Modern Office</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="kitchen" data-aos="fade-up">
+                    <div class="bg-white dark:bg-secondary rounded-xl overflow-hidden shadow-lg group cursor-pointer hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Modern Kitchen" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span class="text-accent text-xs uppercase">Kitchen</span>
+                                    <h3 class="text-white text-lg font-semibold">Modern Kitchen</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="commercial" data-aos="fade-up">
+                    <div class="bg-white dark:bg-secondary rounded-xl overflow-hidden shadow-lg group cursor-pointer hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=600&h=400&fit=crop" alt="Restaurant Interior" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span class="text-accent text-xs uppercase">Commercial</span>
+                                    <h3 class="text-white text-lg font-semibold">Restaurant Interior</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="living-room" data-aos="fade-up">
+                    <div class="bg-white dark:bg-secondary rounded-xl overflow-hidden shadow-lg group cursor-pointer hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=600&h=400&fit=crop" alt="Luxury Villa" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span class="text-accent text-xs uppercase">Living Room</span>
+                                    <h3 class="text-white text-lg font-semibold">Luxury Villa</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-32 bg-gray-50 dark:bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-accent text-sm font-medium mb-2 uppercase tracking-widest" data-aos="fade-up">Contact</p>
+                <h2 class="text-4xl md:text-5xl font-sora font-bold" data-aos="fade-up" data-aos-delay="200">
+                    Get In <span class="text-accent">Touch</span>
+                </h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 bg-white dark:bg-secondary rounded-xl p-6 hover:shadow-lg transition">
+                            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center text-accent text-xl">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Email</p>
+                                <a href="mailto:Omarhusseinadan88@gmail.com" class="font-semibold hover:text-accent">Omarhusseinadan88@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white dark:bg-secondary rounded-xl p-6 hover:shadow-lg transition">
+                            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center text-accent text-xl">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Phone</p>
+                                <a href="tel:+252617961544" class="font-semibold hover:text-accent">+252617961544</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white dark:bg-secondary rounded-xl p-6 hover:shadow-lg transition">
+                            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center text-accent text-xl">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Location</p>
+                                <p class="font-semibold">Mogadishu, Somalia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 rounded-2xl overflow-hidden h-64">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204880.274842!2d45.3!3d2.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3d85e43357f1e451%3A0x8e90e90e90e90e90!2sMogadishu%2C%20Somalia!5e0!3m2!1sen!2sus!4v1600000000000" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <form id="contact-form" class="bg-white dark:bg-secondary rounded-2xl p-8 shadow-xl">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Name</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-primary focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-primary focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition" placeholder="Your Email">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Subject</label>
+                                <input type="text" name="subject" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-primary focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition" placeholder="Subject">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Message</label>
+                                <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-primary focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-accent to-cyan-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-accent/30 transition">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-secondary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-sora font-bold bg-gradient-to-r from-accent to-cyan-400 bg-clip-text text-transparent mb-4">Cumar</h3>
+                    <p class="text-gray-400 mb-6 max-w-md">Professional Interior Designer creating modern, elegant, and comfortable interior spaces in Mogadisho.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-accent">Home</a></li>
+                        <li><a href="#about" class="hover:text-accent">About</a></li>
+                        <li><a href="#portfolio" class="hover:text-accent">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-accent">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-accent">Interior Design</a></li>
+                        <li><a href="#services" class="hover:text-accent">Space Planning</a></li>
+                        <li><a href="#services" class="hover:text-accent">3D Visualization</a></li>
+                        <li><a href="#services" class="hover:text-accent">Commercial</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Cumar. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white shadow-lg opacity-0 translate-y-4 transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
